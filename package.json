@@ -1,35 +1,35 @@
 {
-	"name": "fcc-issue-tracker",
-	"version": "1.0.0",
-	"description": "Issue Tracker. Quality Assurance Certification. Free Code Camp.",
-	"main": "server.js",
-	"scripts": {
-		"start": "node server.js",
-		"test": "mocha --timeout 5000 --recursive --ui tdd tests/"
-	},
-	"dependencies": {
-		"body-parser": "^1.19.0",
-		"chai": "^4.2.0",
-		"chai-http": "^4.3.0",
-		"cors": "^2.8.5",
-		"dotenv": "^8.2.0",
-		"express": "^4.17.1",
-		"mocha": "^10.2.0",
-		"mongoose": "^8.1.1"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/minhkashyu/fcc-issue-tracker"
-	},
-	"bugs": {
-		"url": "https://github.com/minhkashyu/fcc-issue-tracker/issues"
-	},
-	"homepage": "https://github.com/minhkashyu/fcc-issue-tracker#readme",
-	"author": "Minh Ta <https://github.com/minhkashyu>",
-	"keywords": [
-		"node",
-		"hyperdev",
-		"express"
-	],
-	"license": "MIT"
+  "name": "fcc-issue-tracker",
+  "version": "1.0.0",
+  "description": "Issue Tracker. Quality Assurance Certification. Free Code Camp.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "mocha --timeout 5000 --recursive --ui tdd tests/"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mocha": "^10.2.0",
+    "mongoose": "^7.6.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/minhkashyu/fcc-issue-tracker"
+  },
+  "bugs": {
+    "url": "https://github.com/minhkashyu/fcc-issue-tracker/issues"
+  },
+  "homepage": "https://github.com/minhkashyu/fcc-issue-tracker#readme",
+  "author": "Minh Ta <https://github.com/minhkashyu>",
+  "keywords": [
+    "node",
+    "hyperdev",
+    "express"
+  ],
+  "license": "MIT"
 }

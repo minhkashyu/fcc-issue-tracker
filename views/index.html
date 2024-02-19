@@ -55,11 +55,11 @@
         <h2 class="mt-5">API Tests</h2>
         <h4>Submit issue on <i>apitest</i></h4>
         <form id="testForm" class="border">
-          <input type="text" name="issue_title" placeholder="*Title" class="form-control" required=''><br>
-          <textarea type="text" name="issue_text" placeholder="*Text" class="form-control" required=''></textarea><br>
-          <input type="text" name="created_by" placeholder="*Created by" class="form-control" required=''><br>
-          <input type="text" name="assigned_to" placeholder="(opt)Assigned to" class="form-control"><br>
-          <input type="text" name="status_text" placeholder="(opt)Status text" class="form-control"><br>
+          <input type="text" name="issue_title" placeholder="*Title" class="form-control mb-2" required=''>
+          <textarea type="text" name="issue_text" placeholder="*Text" class="form-control mb-2" required=''></textarea>
+          <input type="text" name="created_by" placeholder="*Created by" class="form-control mb-2" required=''>
+          <input type="text" name="assigned_to" placeholder="(opt)Assigned to" class="form-control mb-2">
+          <input type="text" name="status_text" placeholder="(opt)Status text" class="form-control mb-2">
           <button type="submit" class="btn btn-primary w-100">Submit Issue</button>
         </form>
 
@@ -68,24 +68,24 @@
           (Change any or all to update issue on the _id supplied)
         </h4>
         <form id="testForm2" class="border">
-          <input type="text" name="_id" placeholder="*_id" class="form-control" required=''><br>
-          <input type="text" name="issue_title" placeholder="(opt)Title" class="form-control"><br>
-          <textarea type="text" name="issue_text" placeholder="(opt)Text" class="form-control"></textarea><br>
-          <input type="text" name="created_by" placeholder="(opt)Created by" class="form-control"><br>
-          <input type="text" name="assigned_to" placeholder="(opt)Assigned to" class="form-control"><br>
-          <input type="text" name="status_text" placeholder="(opt)Status text" class="form-control"><br>
-          <div class="form-check text-start">
+          <input type="text" name="_id" placeholder="*_id" class="form-control mb-2" required=''>
+          <input type="text" name="issue_title" placeholder="(opt)Title" class="form-control mb-2">
+          <textarea type="text" name="issue_text" placeholder="(opt)Text" class="form-control mb-2"></textarea>
+          <input type="text" name="created_by" placeholder="(opt)Created by" class="form-control mb-2">
+          <input type="text" name="assigned_to" placeholder="(opt)Assigned to" class="form-control mb-2">
+          <input type="text" name="status_text" placeholder="(opt)Status text" class="form-control mb-2">
+          <div class="form-check text-start mb-2">
             <input class="form-check-input" type="checkbox" name="open" value="false" id="chkCloseIssue">
             <label class="form-check-label" for="chkCloseIssue">
               Check to close issue
             </label>
-          </div><br>
+          </div>
           <button type="submit" class="btn btn-success w-100">Submit Issue</button>
         </form>
 
         <h4 class="mt-5">Delete issue on <i>apitest</i></h4>
         <form id="testForm3" class="border">
-          <input type="text" name="_id" placeholder="_id" class="form-control" required=''><br>
+          <input type="text" name="_id" placeholder="_id" class="form-control mb-2" required=''>
           <button type="submit" class="btn btn-danger w-100">Delete Issue</button>
         </form>
         <code id='jsonResult'></code>

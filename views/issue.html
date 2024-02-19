@@ -27,11 +27,11 @@
         <br>
         <h3>Submit a new issue:</h3>
         <form id="newIssue" method="post" action="/api/">
-          <input type="text" name="issue_title" placeholder="*Title" class="form-control" required=''><br>
-          <textarea type="text" name="issue_text" placeholder="*Text" class="form-control" required=''></textarea><br>
-          <input type="text" name="created_by" placeholder="*Created by" class="form-control" required=''><br>
-          <input type="text" name="assigned_to" placeholder="(opt)Assigned to" class="form-control"><br>
-          <input type="text" name="status_text" placeholder="(opt)Status text" class="form-control"><br>
+          <input type="text" name="issue_title" placeholder="*Title" class="form-control mb-2" required=''>
+          <textarea type="text" name="issue_text" placeholder="*Text" class="form-control mb-2" required=''></textarea>
+          <input type="text" name="created_by" placeholder="*Created by" class="form-control mb-2" required=''>
+          <input type="text" name="assigned_to" placeholder="(opt)Assigned to" class="form-control mb-2">
+          <input type="text" name="status_text" placeholder="(opt)Status text" class="form-control mb-2">
           <button type="submit" class="btn btn-primary w-100">Submit Issue</button>
         </form>
       </div>
@@ -89,7 +89,7 @@
             type: "POST",
             url: url,
             data: $(this).serialize(),
-            success: function(data) { window.location.reload(true); }
+            success: function(data) { window.location.reload(); }
           });
         });
 
@@ -100,9 +100,10 @@
             type: "PUT",
             url: url,
             data: {_id: $(this).attr('id'), open: false},
-            success: function(data) { alert(data); window.location.reload(true); }
+            success: function(data) { alert(data.result || data.error || 'Unknown error'); window.location.reload(); }
           });
         });
+
         $('#issueDisplay').on('click','.deleteIssue', function(e) {
           e.preventDefault();
           let url = "/api/issues/"+currentProject;
@@ -110,7 +111,7 @@
             type: "DELETE",
             url: url,
             data: {_id: $(this).attr('id')},
-            success: function(data) { alert(data); window.location.reload(true); }
+            success: function(data) { alert(data.result || data.error || 'Unknown error'); window.location.reload(); }
           });
         });
       });

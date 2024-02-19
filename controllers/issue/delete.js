@@ -5,7 +5,7 @@ const Issue = require('../../models/issue/index.js');
 // * Delete an issue with an invalid `_id`: DELETE request to `/api/issues/{project}`
 // * Delete an issue with missing `_id`: DELETE request to `/api/issues/{project}`
 module.exports = (req, res) => {
-  let project = req.params.project;
+  let projectSlug = req.params.project;
   let issueId = req.body._id || '';
 
   if (!issueId) {
@@ -14,7 +14,7 @@ module.exports = (req, res) => {
     });
   }
 
-  Project.findBySlug(project, (error, project) => {
+  Project.findBySlug(projectSlug, (error, project) => {
     if (error || !project) {
       return res.json({
         error: 'could not delete',

@@ -23,6 +23,7 @@ const ProjectModel = mongoose.model('Project', ProjectSchema);
 
 const createAndSaveProject = require('./create.js');
 const findBySlug = require('./find-by-slug.js');
+const findBySlugOrCreate = require('./find-by-slug-or-create.js');
 
 module.exports = {
   ProjectModel,
@@ -31,5 +32,8 @@ module.exports = {
   },
   findBySlug: (projectSlug, done) => {
     findBySlug(ProjectModel, projectSlug, done);
+  },
+  findBySlugOrCreate: (projectSlug, done) => {
+    findBySlugOrCreate(ProjectModel, projectSlug, done);
   },
 };

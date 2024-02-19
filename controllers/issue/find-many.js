@@ -5,7 +5,8 @@ const Issue = require('../../models/issue/index.js');
 // * View issues on a project with one filter: GET request to `/api/issues/{project}`
 // * View issues on a project with multiple filters: GET request to `/api/issues/{project}`
 module.exports = (req, res) => {
-  let project = req.params.project;
+  let projectSlug = req.params.project;
+  let issueId = req.query._id || '';
   let issueTitle = req.query.issue_title || '';
   let issueText = req.query.issue_text || '';
   let createdBy = req.query.created_by || '';
@@ -16,20 +17,17 @@ module.exports = (req, res) => {
     open = (req.query.open === 'true');
   }
 
-  Project.findBySlug(project, (error, project) => {
-    if (error) {
-      return res.json({
-        error: error.message
-      });
-    }
-
-    if (!project) {
+  Project.findBySlug(projectSlug, (error, project) => {
+    if (error || !project) {
       return res.json([]);
     }
 
     let objCriteria = {
       project: project._id,
     };
+    if (issueId) {
+      objCriteria._id = issueId;
+    }
     if (issueTitle) {
       objCriteria.issue_title = issueTitle;
     }

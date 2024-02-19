@@ -7,7 +7,7 @@ const Issue = require('../../models/issue/index.js');
 // * Update an issue with no fields to update: PUT request to `/api/issues/{project}`
 // * Update an issue with an invalid `_id`: PUT request to `/api/issues/{project}`
 module.exports = (req, res) => {
-  let project = req.params.project;
+  let projectSlug = req.params.project;
   let issueId = req.body._id || '';
   let issueTitle = undefined;
   if (req.body.issue_title !== undefined) {
@@ -53,7 +53,7 @@ module.exports = (req, res) => {
     });
   }
 
-  Project.findBySlug(project, (error, project) => {
+  Project.findBySlug(projectSlug, (error, project) => {
     if (error || !project) {
       return res.json({
         error: 'could not update',
@@ -87,6 +87,10 @@ module.exports = (req, res) => {
       }
       if (open !== undefined) {
         updatedFields.open = open;
+      }
+      // check if updateFields is empty object
+      if (Object.keys(updatedFields).length > 0) {
+        updatedFields.updated_on = new Date();
       }
 
       Issue.updateIssue(issueId, updatedFields, (error, doc) => {

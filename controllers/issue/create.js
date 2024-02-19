@@ -5,7 +5,7 @@ const Issue = require('../../models/issue/index.js');
 // * Create an issue with only required fields: POST request to `/api/issues/{project}`
 // * Create an issue with missing required fields: POST request to `/api/issues/{project}`
 module.exports = (req, res) => {
-  let project = req.params.project;
+  let projectSlug = req.params.project;
   let issueTitle = req.body.issue_title || '';
   let issueText = req.body.issue_text || '';
   let createdBy = req.body.created_by || '';
@@ -18,7 +18,7 @@ module.exports = (req, res) => {
     });
   }
 
-  Project.findBySlug(project, (error, project) => {
+  Project.findBySlugOrCreate(projectSlug, (error, project) => {
     if (error) {
       return res.json({
         error: error.message
